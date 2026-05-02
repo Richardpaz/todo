@@ -7,14 +7,13 @@ type Task = {
     status: "todo" | "in-progress" | "done";
 }
 
-
 export function CardTask({ task }: { task: Task }) {
 
-    const statusColors = {
-        "todo": "orange",
-        "in-progress": "blue",
-        "done": "green"
-    }
+const statusColors = {
+  todo: "gray",
+  "in-progress": "blue",
+  done: "green",
+} as const;
 
     return (
         <Card>
