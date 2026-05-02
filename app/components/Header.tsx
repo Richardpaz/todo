@@ -16,8 +16,8 @@ export function Header() {
         <Flex direction="row" gap="4" className="header-container w-full" justify={"between"}>
             <TabNav.Root>
 
-                <TabNav.Link asChild active={pathname === "/Dashboard"}>
-                    <Link href={"/Dashboard"}>
+                <TabNav.Link asChild active={pathname === "/"}>
+                    <Link href={"/"}>
                         DashBoard
                     </Link>
                 </TabNav.Link>
