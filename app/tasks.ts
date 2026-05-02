@@ -1,4 +1,5 @@
-export const tasks = [
+import { Task } from "./page"
+export const tasks : Task[] = [
   {
     id: "1",
     title: "Diseñar layout dashboard",
