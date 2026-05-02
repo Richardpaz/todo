@@ -18,7 +18,7 @@ export function Header() {
 
                 <TabNav.Link asChild active={pathname === "/"}>
                     <Link href={"/"}>
-                        DashBoard
+                        Panel
                     </Link>
                 </TabNav.Link>
 
@@ -29,7 +29,12 @@ export function Header() {
                 </TabNav.Link>
                 <TabNav.Link asChild active={pathname === "/Analytics"}>
                     <Link href={"/Analytics"}>
-                        Analytics
+                        Analitica
+                    </Link>
+                </TabNav.Link>
+                   <TabNav.Link asChild active={pathname === "/AddTask"}>
+                    <Link href={"/AddTask"}>
+                        Agregar Tarea
                     </Link>
                 </TabNav.Link>
             </TabNav.Root>
