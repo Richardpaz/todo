@@ -1,7 +1,14 @@
-import { Box, Card, Flex, Heading, Text } from "@radix-ui/themes";
-import { tasks } from "../tasks";
+import { Card, Flex, Heading, Text } from "@radix-ui/themes";
 
-export function CardTask({ task }) {
+type Task = {
+    id: string;
+    title: string;
+    description: string;
+    status: "todo" | "in-progress" | "done";
+}
+
+
+export function CardTask({ task }: { task: Task }) {
 
     const statusColors = {
         "todo": "orange",
