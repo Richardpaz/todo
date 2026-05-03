@@ -18,10 +18,9 @@ const statusColors = {
     return (
         <Card>
             <Flex direction={"column"} gap={"2"}>
-                <Heading size={"3"}>{task.titulo}</Heading>
+                <Heading size={"2"}>{task.titulo}</Heading>
                 <Text size={"1"} weight={"light"}>{task.descripcion}</Text>
                 <Text size={"2"} color={statusColors[task.estado]}>Estado: {task.estado}</Text>
-
             </Flex>
         </Card>
     )
