@@ -9,7 +9,6 @@ type TaskStore = {
   fetchTasks: () => Promise<void>;
 };
 
-
 export const useTaskstore = create<TaskStore>((set) => ({
     tasks: [],
     loading: false,
@@ -18,5 +17,9 @@ export const useTaskstore = create<TaskStore>((set) => ({
         set({ loading: true, error: null })
         const tasks = await services.getTasks()
         set({ tasks : tasks || [], loading: false })
+    },
+    addTask:async ()=>{
+        const newTask = await services.addTask()
+        set({ loading: true, error: null })
     }
 }))
