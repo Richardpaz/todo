@@ -2,9 +2,9 @@ import { Card, Flex, Heading, Text } from "@radix-ui/themes";
 
 type Task = {
     id: string;
-    title: string;
-    description: string;
-    status: "todo" | "in-progress" | "done";
+    titulo: string;
+    descripcion: string;
+    estado: "todo" | "in-progress" | "done";
 }
 
 export function CardTask({ task }: { task: Task }) {
@@ -18,9 +18,9 @@ const statusColors = {
     return (
         <Card>
             <Flex direction={"column"} gap={"2"}>
-                <Heading size={"3"}>{task.title}</Heading>
-                <Text size={"1"} weight={"light"}>{task.description}</Text>
-                <Text size={"2"} color={statusColors[task.status]}>Estado: {task.status}</Text>
+                <Heading size={"3"}>{task.titulo}</Heading>
+                <Text size={"1"} weight={"light"}>{task.descripcion}</Text>
+                <Text size={"2"} color={statusColors[task.estado]}>Estado: {task.estado}</Text>
 
             </Flex>
         </Card>

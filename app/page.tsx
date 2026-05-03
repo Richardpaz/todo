@@ -1,26 +1,21 @@
-import { tasks } from "@/app/tasks"
+"use client"
 import { CardTask } from "./components/CardTask"
 import { Flex } from "@radix-ui/themes"
-
-export type Task = {
-  id: string;
-  title: string;
-  description: string;
-  completed: boolean;
-  priority: "low" | "medium" | "high";
-  status: "todo" | "in-progress" | "done";
-  project: string;
-  tags: string[];
-  dueDate: string;
-  createdAt: string;
-};
+import { useTaskstore } from "./store/task.store"
+import { useEffect } from "react";
 
 function Dashboard() {
-    console.log(tasks)
+    const tasks = useTaskstore((state) => state.tasks)
+    const fetchTasks = useTaskstore((state) => state.fetchTasks)
+
+    useEffect(() => {
+        fetchTasks()
+    }, [fetchTasks])
+
     return (
         <Flex gap={"2"} direction={"column"}>
             {tasks.map((task) => (
-                <CardTask key={task.id}  task={task}/>
+                <CardTask key={task.id} task={task} />
             ))}
         </Flex>
     )
