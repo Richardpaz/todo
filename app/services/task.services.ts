@@ -1,6 +1,7 @@
 
 export const getTasks = async () => {
     const data = await fetch('/api/tasks')
-    return data.json()
+    const result = await data.json()
+    return result.data
 }
 

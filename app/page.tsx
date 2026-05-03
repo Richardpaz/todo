@@ -14,7 +14,7 @@ function Dashboard() {
 
     return (
         <Flex gap={"2"} direction={"column"}>
-            {tasks.map((task) => (
+            {tasks?.map((task) => (
                 <CardTask key={task.id} task={task} />
             ))}
         </Flex>

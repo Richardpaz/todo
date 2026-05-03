@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import * as services from "../services/task.services";
+import {getTasks}from "../services/task.services";
 import { Task } from "../types/types";
 type TaskStore = {
   tasks: Task[];
@@ -15,11 +15,7 @@ export const useTaskstore = create<TaskStore>((set) => ({
     error: null,
     fetchTasks: async () => {
         set({ loading: true, error: null })
-        const tasks = await services.getTasks()
+        const tasks = await getTasks()
         set({ tasks : tasks || [], loading: false })
-    },
-    addTask:async ()=>{
-        const newTask = await services.addTask()
-        set({ loading: true, error: null })
     }
 }))
