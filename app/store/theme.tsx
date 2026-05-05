@@ -1,23 +1,32 @@
-import { create } from "zustand";
+"use client"
 
-type Theme = "light" | "dark";
+import { create } from "zustand"
+import { persist, createJSONStorage } from "zustand/middleware"
+
+type Theme = "light" | "dark"
 
 interface ThemeState {
-  theme: Theme;
-  toggleTheme: () => void;
+  theme: Theme
+  toggleTheme: () => void
 }
 
-export const useThemeStore = create<ThemeState>((set) => ({
-  theme: "light",
+export const useThemeStore = create<ThemeState>()(
+  persist(
+    (set, get) => ({
+      theme: "light",
 
-  toggleTheme: () =>
-    set((state) => {
-      const newTheme =
-        state.theme === "light" ? "dark" : "light";
+      toggleTheme: () => {
+        const newTheme =
+          get().theme === "light" ? "dark" : "light"
 
-      localStorage.setItem("theme", newTheme);
-      document.documentElement.className = newTheme;
+        document.documentElement.className = newTheme
 
-      return { theme: newTheme };
+        set({ theme: newTheme })
+      },
     }),
-}));
+    {
+      name: "theme-storage",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+)
