@@ -32,6 +32,7 @@ function Task() {
         getTask()
     }, [params.Task])
     console.log(data)
+
     const submit = async (datos: TaskData) => {
         try {
             const res = await fetch(`/api/${params.Task}`, {
@@ -41,14 +42,25 @@ function Task() {
                     "Content-Type": "application/json"
                 }
             })
-            const data = await res.json()
-            console.log(data)
+            const datas = await res.json()
+            console.log(datas)
             router.push("/")
         } catch (error) {
             console.log(error)
         }
     }
-    console.log(watch())
+
+    const handleDelete = async () => {
+        const res = await fetch(`/api/${params.Task}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        const data = await res.json()
+        console.log(data)
+        router.push("/")
+    }
     return (
         data?.map(e =>
             <form key={e.id} onSubmit={handleSubmit(submit)}>
@@ -70,9 +82,8 @@ function Task() {
                         {...Controller}
                     />
                     <Flex direction={"row"} gap={"2"} justify={"end"}>
-                        <Button variant="outline" color="red">Eliminar</Button>
+                        <Button variant="outline" color="red" onClick={handleDelete}>Eliminar</Button>
                         <Button color="green" variant="outline" style={{ width: "200px" }}>Guardar</Button>
-
                     </Flex>
                 </Flex>
             </form>

@@ -23,3 +23,9 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
         .select()
     return NextResponse.json({ data })
 }
+
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params
+    const { data } = await supabase.from('Tasks').delete().eq('id', id)
+    return NextResponse.json({ data })
+}
