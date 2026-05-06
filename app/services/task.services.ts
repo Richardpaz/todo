@@ -14,3 +14,10 @@ export const createTask = async (titulo: string, descripcion: string) => {
     return result.data
 }
 
+export const getTask = async (id: string) => {
+    const data = await fetch(`/api/${id}`)
+    const result = await data.json()
+    return result.data
+}
+
+

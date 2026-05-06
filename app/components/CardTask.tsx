@@ -1,4 +1,5 @@
-import { Card, Flex, Heading, Text } from "@radix-ui/themes";
+import { Badge, Card, Flex, Heading, Text } from "@radix-ui/themes";
+import Link from "next/link";
 
 type Task = {
     id: string;
@@ -9,19 +10,21 @@ type Task = {
 
 export function CardTask({ task }: { task: Task }) {
 
-const statusColors = {
-  todo: "orange",
-  "in-progress": "blue",
-  done: "green",
-} as const;
+    const statusColors = {
+        todo: "orange",
+        "in-progress": "blue",
+        done: "green",
+    } as const;
 
     return (
-        <Card>
-            <Flex direction={"column"} gap={"2"}>
-                <Heading size={"2"}>{task.titulo}</Heading>
-                <Text size={"1"} weight={"light"}>{task.descripcion}</Text>
-                <Text size={"2"} color={statusColors[task.estado]}>Estado: {task.estado}</Text>
-            </Flex>
-        </Card>
+        <Link href={`/${task.id}`}>
+            <Card>
+                <Flex direction={"column"} gap={"2"}>
+                    <Heading size={"2"}>{task.titulo}</Heading>
+                    <Text size={"1"} weight={"light"}>{task.descripcion}</Text>
+                    <Text size={"2"} color={statusColors[task.estado]}>Estado: <Badge color={statusColors[task.estado]}>{task.estado}</Badge></Text>
+                </Flex>
+            </Card>
+        </Link>
     )
 }

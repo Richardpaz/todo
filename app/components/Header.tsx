@@ -21,17 +21,6 @@ export function Header() {
                         Panel
                     </Link>
                 </TabNav.Link>
-
-                <TabNav.Link asChild active={pathname === "/Hoy"}>
-                    <Link href={"/Hoy"}>
-                        Hoy
-                    </Link>
-                </TabNav.Link>
-                <TabNav.Link asChild active={pathname === "/Analytics"}>
-                    <Link href={"/Analytics"}>
-                        Analitica
-                    </Link>
-                </TabNav.Link>
                    <TabNav.Link asChild active={pathname === "/AddTask"}>
                     <Link href={"/AddTask"}>
                         Agregar Tarea
