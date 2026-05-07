@@ -62,7 +62,7 @@ export function Header() {
                 </TabNav.Link>
             </TabNav.Root>
             <Flex align="center" direction="row" gap="4">
-                <TextField.Root placeholder="Buscar tarea..." className="w-100" onKeyDown={handleBuscar} />
+                <TextField.Root placeholder="Buscar tarea..." className="w-100"/>
                 <BellIcon />
                 <GearIcon />
                 <Half2Icon onClick={toggleTheme} />
