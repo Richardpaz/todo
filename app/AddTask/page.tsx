@@ -1,5 +1,5 @@
 "use client"
-import { Flex, TextField, Text, TextArea, Button, Select, Callout, Badge } from "@radix-ui/themes";
+import { Flex, TextField, Text, TextArea, Button, Select, Callout } from "@radix-ui/themes";
 import { z } from "zod";
 import React from "react";
 import { useForm, Controller } from "react-hook-form"
@@ -46,9 +46,13 @@ function AddTask() {
         }
     }
 
+const handleCancelar = ()=>{
+    router.push("/")
+}
+
     return (
         success === false ?
-            <form onSubmit={handleSubmit(submit)} className="w-full">
+            <form onSubmit={handleSubmit(submit)} className="flex flex-col items-center gap-4 justify-center m-auto w-full">
                 <Flex direction={"column"} gap={"2"} width={"500px"} >
                     <Text size={"3"}>Agregar nueva tarea</Text>
                     <TextField.Root placeholder="Título de la tarea" {...register("titulo", {
@@ -78,8 +82,9 @@ function AddTask() {
                         </Select.Root>
                     )} />
                     {errors.prioridad && <Text size={"1"} color={"red"}>{errors.prioridad.message}</Text>}
+                  
                     <Flex gap={"2"} direction={"row"} justify={"end"}>
-                        <Button variant={"outline"} color="brown">Cancelar</Button>
+                        <Button variant={"outline"} color="brown" onClick={handleCancelar}>Cancelar</Button>
                         <Button variant={"outline"} color={"green"} className="w-80" style={{ width: "150px" }}>Guardar</Button>
                     </Flex>
                 </Flex>

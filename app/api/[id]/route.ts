@@ -14,11 +14,11 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 
 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-    const { titulo, descripcion, estado } = await req.json()
+    const { titulo, descripcion, estado, prioridad } = await req.json()
     const { id } = await params
     const { data, error } = await supabase
         .from('Tasks')
-        .update({ "titulo": titulo, "descripcion": descripcion, "estado": estado })
+        .update({ "titulo": titulo, "descripcion": descripcion, "estado": estado, "prioridad": prioridad, })
         .eq("id", id)
         .select()
     return NextResponse.json({ data })

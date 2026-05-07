@@ -20,4 +20,20 @@ export const getTask = async (id: string) => {
     return result.data
 }
 
+export const getPrioridad = async (prioridad: string) => {
+    const data = await fetch('/api/prioridad', {
+        method: 'POST',
+        body: JSON.stringify({ prioridad })
+    })
+    const result = await data.json()
+    return result
+}
 
+export const getEstado = async (estado: string) => {
+    const data = await fetch('/api/estado', {
+        method: 'POST',
+        body: JSON.stringify({ estado })
+    })
+    const result = await data.json()
+    return result
+}

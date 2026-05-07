@@ -3,8 +3,6 @@ export type Task = {
     titulo: string;
     descripcion: string;
     estado: "todo" | "in-progress" | "done";
-    project: string;
-    tags: string[];
-    dueDate: string;
-    createdAt: string;
+    prioridad: "alta" | "media" | "baja";
+
 };

@@ -8,10 +8,10 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    const {titulo,descripcion} = await req.json()
+    const {titulo,descripcion,estado,prioridad} = await req.json()
     const { data, error } = await supabase
         .from('Tasks')
-        .insert([{ titulo, descripcion }])
+        .insert([{ titulo, descripcion,prioridad}])
     
     if (error) {
         return NextResponse.json({ error: error.message }, { status: 500 })

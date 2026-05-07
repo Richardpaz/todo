@@ -18,7 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 const taskSchema = z.object({
     titulo: z.string().min(1),
     descripcion: z.string().min(1),
-    prioridad: z.enum(["baja", "media", "alta"]).optional(),
+    prioridad: z.enum(["baja", "media", "alta"]),
     estado: z.enum(["todo", "in-progress", "done"])
 })
 
@@ -95,6 +95,26 @@ function Task() {
                                 <Select.Item value="todo">Hacer</Select.Item>
                                 <Select.Item value="in-progress">En progreso</Select.Item>
                                 <Select.Item value="done">Hecho</Select.Item>
+                            </Select.Content>
+                        </Select.Root>
+                    )}
+                />
+
+                <Text>Prioridad</Text>
+
+                <Controller
+                    name="prioridad"
+                    control={control}
+                    render={({ field }) => (
+                        <Select.Root
+                            value={field.value}
+                            onValueChange={field.onChange}
+                        >
+                            <Select.Trigger />
+                            <Select.Content>
+                                <Select.Item value="baja">baja</Select.Item>
+                                <Select.Item value="media">media</Select.Item>
+                                <Select.Item value="alta">alta</Select.Item>
                             </Select.Content>
                         </Select.Root>
                     )}

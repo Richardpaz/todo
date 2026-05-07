@@ -12,11 +12,10 @@ export default function Providers({
     return (
         <Theme appearance={theme} panelBackground="translucent">
             <div className="contenedor">
-                <aside className="aside">aside</aside>
                 <header className="header">
                     <Header />
                 </header>
-                <main className="main">{children}</main>
+                <main className="flex flex-col items-center justify-center main">{children}</main>
             </div></Theme>
     );
 }
