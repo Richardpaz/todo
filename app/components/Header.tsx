@@ -12,11 +12,6 @@ export function Header() {
         (state) => state.toggleTheme
     );
 
-    const handleBuscar = (e) => {
-        if (e.key === "Enter") {
-            console.log(searchParams.get("titulo"))
-        }
-    }
 
     return (
         <Flex direction="row" gap="4" className="header-container w-full" justify={"between"}>
