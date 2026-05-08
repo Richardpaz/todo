@@ -4,7 +4,6 @@ import { Flex } from "@radix-ui/themes"
 import { useTaskstore } from "./store/task.store"
 import { useEffect } from "react";
 import { z } from "zod"
-import { id } from "zod/locales";
 import { NoTask } from "./components/NoTasks";
 
 const taskSchema = z.object({
