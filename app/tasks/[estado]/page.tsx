@@ -33,7 +33,7 @@ function Estados() {
 
     return (
         estado.length === 0 ?
-            <NoTask /> :
+            <p>Cargando..</p>:
             estado.map((task: typeTask) => (
                 <CardTask key={task.id} task={task} />
             ))
